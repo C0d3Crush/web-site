@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desktop</title> <!-- Changed title here -->
+    <title>Desktop</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,6 +20,10 @@
         <div class="desktop-icon" onclick="openWindow('images-folder')">
             <img src="images/folder.png" alt="Images Folder" class="icon-image">
             <span>Gallery</span>
+        </div>
+        <div class="desktop-icon" onclick="openWindow('dvd-screensaver')">
+            <img src="images/dvd-icon.png" alt="DVD Screensaver" class="icon-image">
+            <span>DVD Screensaver</span>
         </div>
 
         <!-- Windows -->
@@ -53,7 +57,48 @@
                 <!-- Images will be dynamically added here -->
             </div>
         </div>
+
+        <!-- Full Size Image Window -->
+        <div class="window" id="full-size-image" style="display: none;">
+            <div class="window-header">
+                Full Size Image
+                <span class="close-button" onclick="closeWindow('full-size-image')">X</span>
+            </div>
+            <div class="window-content">
+                <img id="full-size-image-element" src="" alt="Full Size" style="width: 100%; height: auto;">
+            </div>
+        </div>
+
+        <!-- DVD Screensaver Window -->
+        <div class="window" id="dvd-screensaver" style="display:none;">
+            <div class="window-header">
+                DVD Screensaver
+                <span class="close-button" onclick="closeWindow('dvd-screensaver')">X</span>
+            </div>
+            <div id="dvd-container" style="position: relative; width: 100%; height: 100%; background-color: black;">
+                <img id="dvd-logo" src="images/custom-logo.png" alt="Custom Logo" style="position:absolute; width:100px; height:auto;">
+            </div>
+        </div>
     </div>
+
+    <!-- Email Window -->
+<div class="window" id="email-window">
+    <div class="window-header">
+        Compose Email
+        <span class="close-button" onclick="closeWindow('email-window')">X</span>
+    </div>
+    <div class="window-content">
+        <form id="email-form">
+            <input type="hidden" id="email-recipient" value="lukdz@yahoo.de">
+            <label for="email-subject">Subject:</label>
+            <input type="text" id="email-subject" placeholder="Enter subject" required><br>
+            <label for="email-body">Message:</label><br>
+            <textarea id="email-body" placeholder="Write your message here..." rows="8" required></textarea><br>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</div>
+
 
     <!-- Taskbar -->
     <div id="taskbar">
@@ -62,6 +107,8 @@
             <a href="https://www.facebook.com" target="_blank"><img src="images/facebook.png" alt="Facebook" class="social-icon"></a>
             <a href="https://www.twitter.com" target="_blank"><img src="images/twitter.png" alt="Twitter" class="social-icon"></a>
             <a href="https://www.instagram.com" target="_blank"><img src="images/instagram.png" alt="Instagram" class="social-icon"></a>
+            <a href="https://github.com/C0d3Crush" target="_blank"><img src="images/github.png" alt="GitHub" class="social-icon"></a>
+            <a href="mailto:lukdz@yahoo.de"><img src="images/email.png" alt="Email" class="social-icon" onclick="openWindow('email-window')"></a>
         </div>
     </div>
 

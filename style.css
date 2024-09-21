@@ -170,3 +170,66 @@ body, html {
 #shutdown-message {
     transition: opacity 1s ease-in-out;
 }
+
+/* DVD Screensaver window styles */
+#dvd-screensaver {
+    width: 400px;
+    height: 300px;
+    background-color: black;
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    display: none;
+}
+
+#dvd-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#dvd-container img {
+    position: absolute;
+    width: 100px; /* Adjust the size of the bouncing image */
+}
+
+/* Email Window */
+#email-window {
+    width: 400px;
+    height: 400px;
+    background-color: #f0f0f0;
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    display: none;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+#email-form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#email-form label {
+    margin: 10px 0 5px 0;
+}
+
+#email-form input, #email-form textarea {
+    padding: 5px;
+    margin-bottom: 10px;
+    width: calc(100% - 10px);
+}
+
+#email-form button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#email-form button:hover {
+    background-color: #45a049;
+}

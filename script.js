@@ -4,6 +4,9 @@ function openWindow(id) {
     if (id === 'images-folder') {
         loadImages();
     }
+    if (id === 'dvd-screensaver') {
+        startDvdScreensaver();
+    }
 }
 
 // Function to close windows
@@ -15,6 +18,8 @@ function closeWindow(id) {
 dragElement(document.getElementById("my-computer"));
 dragElement(document.getElementById("recycle-bin"));
 dragElement(document.getElementById("images-folder"));
+dragElement(document.getElementById("dvd-screensaver"));
+dragElement(document.getElementById("full-size-image"));
 
 function dragElement(elmnt) {
     let startX = 0, startY = 0, initialX = 0, initialY = 0;
@@ -72,7 +77,6 @@ function loadImages() {
         'images/photo4.jpg',
         'images/photo5.jpg',
         'images/photo6.jpg',
-        'images/photo6.jpg',
         'images/photo7.jpg',
         'images/photo8.jpg',
         'images/photo9.jpg',
@@ -81,41 +85,67 @@ function loadImages() {
         'images/photo12.jpg',
         'images/photo13.jpg',
         'images/photo14.jpg',
-        'images/photo15.jpg'
+        'images/photo15.jpg',
     ];
 
-    images.forEach(src => {
-        const img = document.createElement('img');
-        img.src = src;
+    images.forEach(image => {
+        const img = document.createElement("img");
+        img.src = image;
+        img.className = "thumbnail";
+        img.onclick = function() {
+            openFullSizeImage(image);
+        };
         imagesContent.appendChild(img);
     });
 }
 
-// Shutdown Functionality
+// Open Full Size Image
+function openFullSizeImage(imageSrc) {
+    const fullSizeImageWindow = document.getElementById('full-size-image');
+    const fullSizeImageElement = document.getElementById('full-size-image-element');
+    fullSizeImageElement.src = imageSrc;
+    fullSizeImageWindow.style.display = 'block';
+}
+
+// Shut Down Function
 function shutdown() {
-    const shutdownMessage = document.createElement("div");
-    shutdownMessage.innerText = "Shutting down...";
-    shutdownMessage.style.position = "fixed";
-    shutdownMessage.style.top = "50%";
-    shutdownMessage.style.left = "50%";
-    shutdownMessage.style.transform = "translate(-50%, -50%)";
-    shutdownMessage.style.fontSize = "24px";
-    shutdownMessage.style.color = "white";
-    shutdownMessage.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
-    shutdownMessage.style.padding = "20px";
-    shutdownMessage.style.borderRadius = "10px";
-    document.body.appendChild(shutdownMessage);
+    alert("Shutting down...");
+}
+// Start DVD Screensaver
+function startDvdScreensaver() {
+    const dvdLogo = document.getElementById("dvd-logo");
+    const container = document.getElementById("dvd-container");
+    
+    // Initial position
+    let posX = 0;
+    let posY = 0;
+    let dx = 2; // Change in x
+    let dy = 2; // Change in y
+    const logoWidth = 100; // Assuming the logo is 100px wide
+    const logoHeight = 50; // Assuming the logo is 50px tall
 
-    // Animate (fade out)
-    setTimeout(() => {
-        shutdownMessage.style.opacity = "0";
-        shutdownMessage.style.transition = "opacity 2s";
-    }, 100);
+    function animate() {
+        const containerWidth = container.clientWidth;
+        const containerHeight = container.clientHeight;
 
-    // Close the website after the animation
-    setTimeout(() => {
-        window.close(); // This will only work if the page was opened by a script
-        // For testing purposes, you can redirect to a different URL
-        // window.location.href = 'about:blank'; // Uncomment for testing
-    }, 3000); // Wait for the animation to complete
+        // Check for collisions with the container boundaries
+        if (posX + dx > containerWidth - logoWidth || posX + dx < 0) {
+            dx = -dx; // Reverse direction on x-axis
+        }
+        if (posY + dy > containerHeight - logoHeight || posY + dy < 0) {
+            dy = -dy; // Reverse direction on y-axis
+        }
+
+        // Update position
+        posX += dx;
+        posY += dy;
+
+        // Move the DVD logo
+        dvdLogo.style.left = posX + 'px';
+        dvdLogo.style.top = posY + 'px';
+
+        requestAnimationFrame(animate);
+    }
+    
+    animate();
 }
