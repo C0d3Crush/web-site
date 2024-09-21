@@ -149,3 +149,15 @@ function startDvdScreensaver() {
     
     animate();
 }
+
+function openTextFile() {
+    fetch('notes.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('text-file-content').textContent = data;
+            openWindow('text-file-window');
+        })
+        .catch(error => {
+            console.error('Error loading text file:', error);
+        });
+}
