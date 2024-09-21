@@ -1,0 +1,172 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Tahoma, Verdana, sans-serif;
+    background-color: #008080; /* Teal desktop background */
+    position: relative;
+}
+
+/* Desktop Icons */
+.desktop-icon {
+    width: 80px;
+    margin: 20px;
+    text-align: center;
+    color: black;
+    font-size: 14px;
+    position: absolute;
+    cursor: pointer;
+    font-weight: bold; /* Bold text for better visibility */
+}
+
+.icon-image {
+    width: 48px;
+    height: 48px;
+    display: block;
+    margin: 0 auto 5px;
+}
+
+/* Positioning the icons */
+.desktop-icon:nth-child(1) {
+    top: 50px;
+    left: 50px;
+}
+.desktop-icon:nth-child(2) {
+    top: 150px;
+    left: 50px;
+}
+.desktop-icon:nth-child(3) {
+    top: 250px;
+    left: 50px;
+}
+
+/* Window Styles */
+.window {
+    display: none; /* Initially hidden */
+    width: 400px;
+    height: 300px;
+    border: 2px solid #4a708b;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    background-color: #e4e4e4; /* Light gray background */
+    font-family: Tahoma, Verdana, sans-serif;
+}
+
+.window-header {
+    background: linear-gradient(180deg, #0095ff, #004f9e);
+    padding: 5px;
+    color: white;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #004f9e; /* Stronger border */
+}
+
+.close-button {
+    background-color: #ff5b5b;
+    border: none;
+    color: white;
+    padding: 0 6px;
+    cursor: pointer;
+}
+
+.window-content {
+    padding: 10px;
+    background-color: #ffffff; /* White background for content */
+}
+
+/* Taskbar */
+#taskbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #0a4297;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+}
+
+#start-button {
+    background-color: #6c9bd1;
+    border: 1px solid #ffffff;
+    padding: 8px;
+    color: white;
+    font-weight: bold;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Start Menu */
+#start-menu {
+    display: none;
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    width: 200px;
+    background-color: #e4e4e4; /* Light gray background */
+    border: 2px solid #4a708b;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+#start-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#start-menu ul li {
+    padding: 8px;
+    border-bottom: 1px solid #cccccc;
+    cursor: pointer;
+}
+
+#start-menu ul li:hover {
+    background-color: #d0d0d0; /* Highlight color for hover */
+}
+
+/* Image Grid in Images Folder */
+#images-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 5px; /* Added padding */
+}
+
+#images-content img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 1px solid #cccccc; /* Border around images */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Slight shadow */
+}
+
+/* Footer Styles */
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0a4297;
+    color: white;
+    text-align: center;
+    padding: 5px;
+}
+
+.footer-socials {
+    display: inline-block;
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    margin: 0 5px;
+}
+
+/* Add this to style.css for smooth transitions */
+#shutdown-message {
+    transition: opacity 1s ease-in-out;
+}

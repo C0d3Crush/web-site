@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows XP Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="desktop">
+        <!-- Desktop Icons -->
+        <div class="desktop-icon" onclick="openWindow('my-computer')">
+            <img src="images/folder.png" alt="My Computer" class="icon-image">
+            <span>My Computer</span>
+        </div>
+        <div class="desktop-icon" onclick="openWindow('recycle-bin')">
+            <img src="images/folder.png" alt="Recycle Bin" class="icon-image">
+            <span>Recycle Bin</span>
+        </div>
+        <div class="desktop-icon" onclick="openWindow('images-folder')">
+            <img src="images/folder.png" alt="Images Folder" class="icon-image">
+            <span>Gallery</span>
+        </div>
+
+        <!-- Windows -->
+        <div class="window" id="my-computer">
+            <div class="window-header">
+                My Computer
+                <span class="close-button" onclick="closeWindow('my-computer')">X</span>
+            </div>
+            <div class="window-content">
+                <p>This is the My Computer window. You can add files or folders here!</p>
+            </div>
+        </div>
+
+        <div class="window" id="recycle-bin">
+            <div class="window-header">
+                Recycle Bin
+                <span class="close-button" onclick="closeWindow('recycle-bin')">X</span>
+            </div>
+            <div class="window-content">
+                <p>This is the Recycle Bin window. Add deleted items here!</p>
+            </div>
+        </div>
+
+        <!-- Images Folder Window -->
+        <div class="window" id="images-folder">
+            <div class="window-header">
+                Images Folder
+                <span class="close-button" onclick="closeWindow('images-folder')">X</span>
+            </div>
+            <div class="window-content" id="images-content">
+                <!-- Images will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Taskbar -->
+    <div id="taskbar">
+        <button id="start-button" onclick="toggleStartMenu()">Start</button>
+        <div id="taskbar-items">
+            <a href="https://www.facebook.com" target="_blank"><img src="images/facebook.png" alt="Facebook" class="social-icon"></a>
+            <a href="https://www.twitter.com" target="_blank"><img src="images/twitter.png" alt="Twitter" class="social-icon"></a>
+            <a href="https://www.instagram.com" target="_blank"><img src="images/instagram.png" alt="Instagram" class="social-icon"></a>
+        </div>
+    </div>
+
+    <!-- Start Menu -->
+    <div id="start-menu">
+        <ul>
+            <li>Programs</li>
+            <li>Documents</li>
+            <li>Settings</li>
+            <li>Search</li>
+            <li>Help</li>
+            <li>Run...</li>
+            <li id="shutdown" onclick="shutdown()">Shut Down</li>
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
