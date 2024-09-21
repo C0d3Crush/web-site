@@ -86,6 +86,7 @@ function loadImages() {
         'images/photo13.jpg',
         'images/photo14.jpg',
         'images/photo15.jpg',
+        'images/photo16.jpg'
     ];
 
     images.forEach(image => {
