@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desktop</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="fav.png" type="image/x-icon">
 </head>
 <body>
     <div id="desktop">
@@ -25,8 +26,8 @@
             <img src="images/dvd-icon.png" alt="DVD Screensaver" class="icon-image">
             <span>DVD Screensaver</span>
         </div>
-        <div class="desktop-icon" onclick="openTextFile()">
-            <img src="images/text-file-icon.png" alt="Text File" class="icon-image">
+        <div class="desktop-icon" onclick="openWindow('text-file-window')">
+            <img src="images/notes.png" alt="Text File" class="icon-image">
             <span>Notes</span>
         </div>
         
@@ -85,16 +86,16 @@
             </div>
         </div>
         
+        <!-- Notes Window -->
         <div class="window" id="text-file-window" style="display: none;">
             <div class="window-header">
                 Notes
                 <span class="close-button" onclick="closeWindow('text-file-window')">X</span>
             </div>
             <div class="window-content">
-                <pre id="text-file-content"></pre>
+                <pre id="text-file-content">This is the content of your notes. Add your text here, or load from the file if needed.</pre>
             </div>
         </div>
-        
     </div>
 
     <!-- Email Window -->

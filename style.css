@@ -85,6 +85,13 @@ body, html {
     background-color: #ffffff; /* White background for content */
 }
 
+#text-file-content {
+    white-space: pre-wrap; /* Maintains whitespace and wraps text */
+    overflow: auto; /* Adds a scrollbar if content overflows */
+    max-height: calc(100% - 50px); /* Adjust height according to your window */
+}
+
+
 /* Taskbar */
 #taskbar {
     position: fixed;

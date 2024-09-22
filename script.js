@@ -1,11 +1,16 @@
-// Function to open windows (My Computer, Recycle Bin, Images Folder)
+// Function to open windows (My Computer, Recycle Bin, Images Folder, DVD Screensaver, Notes)
 function openWindow(id) {
     document.getElementById(id).style.display = 'block';
+    
+    // Load specific content when opening windows
     if (id === 'images-folder') {
         loadImages();
-    }
+    } 
     if (id === 'dvd-screensaver') {
         startDvdScreensaver();
+    } 
+    if (id === 'text-file-window') {
+        loadTextFile();
     }
 }
 
@@ -13,6 +18,24 @@ function openWindow(id) {
 function closeWindow(id) {
     document.getElementById(id).style.display = 'none';
 }
+
+// Function to load the notes.txt file content into the Notes window
+function loadTextFile() {
+    fetch('notes.txt')
+        .then(response => response.text())  
+        .then(data => {
+            // Split the text into lines and insert breaks
+            const lines = data.split('\n').map(line => line.trim()).filter(line => line !== '');
+            const formattedText = lines.join('<br>'); // Join lines with <br> tags
+            document.getElementById('text-file-content').innerHTML = formattedText; // Use innerHTML for line breaks
+        })
+        .catch(error => {
+            console.error('Error loading text file:', error);
+            document.getElementById('text-file-content').textContent = 'Error loading notes.';
+        });
+}
+
+
 
 // Make windows draggable
 dragElement(document.getElementById("my-computer"));
@@ -149,16 +172,4 @@ function startDvdScreensaver() {
     }
     
     animate();
-}
-
-function openTextFile() {
-    fetch('notes.txt')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('text-file-content').textContent = data;
-            openWindow('text-file-window');
-        })
-        .catch(error => {
-            console.error('Error loading text file:', error);
-        });
 }
