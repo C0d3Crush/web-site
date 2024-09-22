@@ -48,6 +48,10 @@ body, html {
     top: 450px;
     left: 50px;
 }
+.desktop-icon:nth-child(6) {
+    top: 550px;
+    left: 50px;
+}
 
 /* Window Styles */
 .window {

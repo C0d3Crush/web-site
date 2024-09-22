@@ -39,6 +39,7 @@ function loadTextFile() {
 
 // Make windows draggable
 dragElement(document.getElementById("my-computer"));
+dragElement(document.getElementById("projects"));
 dragElement(document.getElementById("recycle-bin"));
 dragElement(document.getElementById("images-folder"));
 dragElement(document.getElementById("dvd-screensaver"));

@@ -14,6 +14,10 @@
             <img src="images/folder.png" alt="My Computer" class="icon-image">
             <span>My Computer</span>
         </div>
+        <div class="desktop-icon" onclick="openWindow('projects')">
+            <img src="images/folder.png" alt="Projects" class="icon-image">
+            <span>Projects</span>
+        </div>
         <div class="desktop-icon" onclick="openWindow('recycle-bin')">
             <img src="images/folder.png" alt="Recycle Bin" class="icon-image">
             <span>Recycle Bin</span>
@@ -40,6 +44,47 @@
             </div>
             <div class="window-content">
                 <p>This is the My Computer window. You can add files or folders here!</p>
+            </div>
+        </div>
+
+        <div class="window" id="projects">
+            <div class="window-header">
+                Projects
+                <span class="close-button" onclick="closeWindow('projects')">X</span>
+            </div>
+            <div class="window-content">
+                <p> <article>
+                    <h2><a href="https://github.com/C0d3Crush/3Rats" target="_blank">3rats</a>: A Roguelike Survival Adventure in a Maze of Mystery</h2>
+                    
+                    <p>Welcome to <strong>3rats</strong>, an exciting 2D roguelike survival RPG where you play as three cunning rats navigating a procedurally generated maze. In this world, survival isn’t just about fighting—it’s about managing resources, staying hidden, and making it back home before your human notices you've been gone.</p>
+                    
+                    <figure>
+                        <img src="" alt="3rats Game Screenshot" style="max-width:100%;height:auto;">
+                        <figcaption>A sneak peek into the world of <strong>3rats</strong>.</figcaption>
+                      </figure>
+                      
+
+                    <h3>The Concept</h3>
+                    
+                    <p>In <strong>3rats</strong>, the gameplay is all about exploration, strategy, and survival. Your characters—a trio of rats—must explore a dynamically generated world filled with challenges and opportunities. The rats have limited time to explore the maze and must return home before their human realizes they’re missing. It's a race against the clock, with hunger and health constantly ticking down.</p>
+                    
+                    <p>The twist? <strong>Every playthrough is unique</strong>. Thanks to procedural map generation, no two mazes are alike, and every adventure requires new strategies and planning. Lose track of time, run out of food, or get caught by predators, and you’ll fail.</p>
+                    
+                    <h3>AI-Powered World</h3>
+                    
+                    <p>One of the core features we're working on is creating an open, living world where <strong>AI enemies function independently of the player</strong>. This is where the magic happens. The goal is for enemies to have a mind of their own—powered by neural networks—so they can exist and act dynamically without needing the player’s input. You won't always be the center of attention. The enemies, NPCs, and environment will feel alive and unpredictable.</p>
+                    
+                    <h3>Current Progress</h3>
+                    
+                    <p>Right now, we have the foundation in place. Our procedural map generation system is up and running, though limited in size for now. Players can control all three rats, and we’ve integrated a chat system to enhance communication between characters (and in the future, maybe even between rats and AI enemies!). We've also added an AI character, though it's in its early stages and currently quite simple, without combat abilities. However, it’s a promising start, and we're constantly iterating to make the AI more challenging and intelligent.</p>
+                    
+                    <h3>What’s Next?</h3>
+                    
+                    <p>Our next steps include expanding the map size, improving the AI so that it poses real threats, and adding the complex combat and survival mechanics that will define the game. We also plan to focus on giving the world that “alive” feel by enhancing enemy behaviors, expanding the resource system, and ensuring that every element feels dynamic and unpredictable.</p>
+                    
+                    <p><strong>Stay tuned for more updates</strong>, screenshots, and perhaps even a sneak peek demo as we continue to develop this wild rodent adventure.</p>
+                  </article>
+                  </p>
             </div>
         </div>
 
