@@ -34,7 +34,14 @@
             <img src="images/notes.png" alt="Text File" class="icon-image">
             <span>Notes</span>
         </div>
-        
+        <div class="desktop-icon" onclick="openWindow('coffee')">
+            <img src="images/coffee.png" alt="Coffee" class="icon-image"> 
+            <span>Buy me a Coffee!</span>
+        </div>
+        <div class="desktop-icon" onclick="openWindow('snake')">
+            <img src="images/snake.png" alt="Snake" class="icon-image">
+            <span>Snake</span>
+        </div>        
 
         <!-- Windows -->
         <div class="window" id="my-computer">
@@ -141,25 +148,39 @@
                 <pre id="text-file-content">This is the content of your notes. Add your text here, or load from the file if needed.</pre>
             </div>
         </div>
+
+        <!-- Snake Game Window -->
+        <div class="window" id="snake" style="display:none;">
+            <div class="window-header">
+                Snake Game
+                <span class="close-button" onclick="closeWindow('snake')">X</span>
+            </div>
+            <div id="snake-container" style="position: relative; width: 400px; height: 300px; background-color: black;">
+                <canvas id="snake-canvas" width="400" height="300"></canvas>
+            </div>
+        </div>
+
+
     </div>
 
+
     <!-- Email Window -->
-<div class="window" id="email-window">
-    <div class="window-header">
-        Compose Email
-        <span class="close-button" onclick="closeWindow('email-window')">X</span>
+    <div class="window" id="email-window">
+        <div class="window-header">
+            Compose Email
+            <span class="close-button" onclick="closeWindow('email-window')">X</span>
+        </div>
+        <div class="window-content">
+            <form id="email-form">
+                <input type="hidden" id="email-recipient" value="lukdz@yahoo.de">
+                <label for="email-subject">Subject:</label>
+                <input type="text" id="email-subject" placeholder="Enter subject" required><br>
+                <label for="email-body">Message:</label><br>
+                <textarea id="email-body" placeholder="Write your message here..." rows="8" required></textarea><br>
+                <button type="submit">Send</button>
+            </form>
+        </div>
     </div>
-    <div class="window-content">
-        <form id="email-form">
-            <input type="hidden" id="email-recipient" value="lukdz@yahoo.de">
-            <label for="email-subject">Subject:</label>
-            <input type="text" id="email-subject" placeholder="Enter subject" required><br>
-            <label for="email-body">Message:</label><br>
-            <textarea id="email-body" placeholder="Write your message here..." rows="8" required></textarea><br>
-            <button type="submit">Send</button>
-        </form>
-    </div>
-</div>
 
 
     <!-- Taskbar -->

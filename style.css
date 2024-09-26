@@ -7,8 +7,36 @@ body, html {
     background-color: #008080; /* Teal desktop background */
     position: relative;
 }
+#desktop {
+    display: grid;
+    grid-auto-flow: column; /* Ensure icons fill top to bottom first */
+    grid-template-rows: repeat(auto-fill, 120px); /* Each row is 100px tall */
+    grid-gap: 0px 20px; /* 20px gap between rows (vertical), 50px between columns (horizontal) */    
+    padding: 20px;
+    justify-content: start; /* Ensure the icons stay aligned to the left */
+    height: 100vh; /* Set height to 100% of the viewport */
+}
 
-/* Desktop Icons */
+.desktop-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    font-weight: bold; 
+
+}
+
+.icon-image {
+    width: 50px;
+    height: 50px;
+}
+
+
+/* old code!
+
 .desktop-icon {
     width: 80px;
     margin: 20px;
@@ -17,7 +45,7 @@ body, html {
     font-size: 14px;
     position: absolute;
     cursor: pointer;
-    font-weight: bold; /* Bold text for better visibility */
+    font-weight: bold; 
 }
 
 .icon-image {
@@ -27,7 +55,6 @@ body, html {
     margin: 0 auto 5px;
 }
 
-/* Positioning the icons */
 .desktop-icon:nth-child(1) {
     top: 50px;
     left: 50px;
@@ -52,6 +79,7 @@ body, html {
     top: 550px;
     left: 50px;
 }
+*/
 
 /* Window Styles */
 .window {
@@ -251,4 +279,19 @@ body, html {
 
 #email-form button:hover {
     background-color: #45a049;
+}
+
+/* Snake Game styles */
+#snake-game {
+    width: 400px;
+    height: 300px;
+    background-color: black;
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    display: none;
+}
+
+#snake-canvas {
+    border: 1px solid #4a708b; /* Border around the canvas */
 }

@@ -12,6 +12,9 @@ function openWindow(id) {
     if (id === 'text-file-window') {
         loadTextFile();
     }
+    if (id === 'snake') {
+        startSnakeGame();
+    }
 }
 
 // Function to close windows
@@ -173,4 +176,87 @@ function startDvdScreensaver() {
     }
     
     animate();
+}
+
+// Start Snake Game
+function startSnakeGame() {
+    const canvas = document.getElementById("snake-canvas");
+    const ctx = canvas.getContext("2d");
+
+    const box = 20; // Size of the snake and food
+    let snake = [{ x: 9 * box, y: 9 * box }]; // Initial snake position
+    let food = { x: Math.floor(Math.random() * 20) * box, y: Math.floor(Math.random() * 15) * box };
+    let d; // Direction
+
+    // Control the snake with arrow keys
+    document.addEventListener("keydown", direction);
+
+    function direction(event) {
+        if (event.keyCode == 37 && d != "RIGHT") {
+            d = "LEFT";
+        } else if (event.keyCode == 38 && d != "DOWN") {
+            d = "UP";
+        } else if (event.keyCode == 39 && d != "LEFT") {
+            d = "RIGHT";
+        } else if (event.keyCode == 40 && d != "UP") {
+            d = "DOWN";
+        }
+    }
+
+    function draw() {
+        // Draw background
+        ctx.fillStyle = "black";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Draw snake
+        for (let i = 0; i < snake.length; i++) {
+            ctx.fillStyle = (i === 0) ? "lime" : "white"; // Head of the snake
+            ctx.fillRect(snake[i].x, snake[i].y, box, box);
+        }
+
+        // Draw food
+        ctx.fillStyle = "red";
+        ctx.fillRect(food.x, food.y, box, box);
+
+        // Old snake position
+        let snakeX = snake[0].x;
+        let snakeY = snake[0].y;
+
+        // Move the snake
+        if (d == "LEFT") snakeX -= box;
+        if (d == "UP") snakeY -= box;
+        if (d == "RIGHT") snakeX += box;
+        if (d == "DOWN") snakeY += box;
+
+        // If the snake eats the food
+        if (snakeX == food.x && snakeY == food.y) {
+            food = { x: Math.floor(Math.random() * 20) * box, y: Math.floor(Math.random() * 15) * box };
+        } else {
+            // Remove the tail
+            snake.pop();
+        }
+
+        // Add new head
+        const newHead = { x: snakeX, y: snakeY };
+
+        // Game over conditions
+        if (snakeX < 0 || snakeX >= canvas.width || snakeY < 0 || snakeY >= canvas.height || collision(newHead, snake)) {
+            clearInterval(game); // Stop the game
+            alert("Game Over!"); // Alert game over
+        }
+
+        snake.unshift(newHead); // Add new head to the snake
+    }
+
+    // Collision detection
+    function collision(head, array) {
+        for (let i = 0; i < array.length; i++) {
+            if (head.x === array[i].x && head.y === array[i].y) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    const game = setInterval(draw, 100); // Call the draw function every 100ms
 }
