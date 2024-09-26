@@ -316,3 +316,115 @@ function pauseMusic() {
     document.getElementById("play-button").style.display = "inline"; // Show Play button
     document.getElementById("pause-button").style.display = "none"; // Hide Pause button
 }
+
+function updateClock() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    const timeString = `${hours}:${minutes}:${seconds}`;
+    
+    document.getElementById('clock').textContent = timeString;
+}
+
+// Update the clock every second
+setInterval(updateClock, 1000);
+
+// Initialize clock immediately
+updateClock();
+
+
+let clockClickCount = 0; // Counter for clock clicks
+
+// Function to set a random background image when the clock is clicked 10 times
+function clockClicked() {
+    clockClickCount++; // Increment the counter
+
+    // Check if the clock has been clicked 10 times
+    if (clockClickCount === 10) {
+        // Array of background images
+        const backgrounds = [
+            'images/kitty1.jpg',
+            'images/kitty2.jpg',
+            'images/kitty3.jpg',
+            'images/kitty4.jpg',
+            'images/kitty5.jpg',
+            'images/kitty6.jpg',
+            'images/kitty7.jpg',
+            'images/kitty8.jpg'
+        ];
+        
+        // Select a random background from the array
+        const randomBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+        
+        // Set the background image
+        document.body.style.backgroundImage = `url(${randomBackground})`;
+        document.body.classList.add('background-image'); // Add the class to style the background
+
+        // Reset the counter after changing the background
+        clockClickCount = 0;
+    }
+}
+
+// Assuming you have a clock element
+const clockElement = document.getElementById('clock'); // Replace with your actual clock element ID
+clockElement.addEventListener('click', clockClicked);
+
+let clippyTimeout;
+
+    // Toggle Clippy window
+    function toggleClippy() {
+        const clippyWindow = document.getElementById('clippy-window');
+        if (clippyWindow.style.display === 'none') {
+            clippyWindow.style.display = 'block';
+            startClippyTalk();
+        } else {
+            closeClippy();
+        }
+    }
+
+    // Close Clippy window
+    function closeClippy() {
+        document.getElementById('clippy-window').style.display = 'none';
+        clearTimeout(clippyTimeout); // Stop Clippy from talking
+    }
+
+    // Start Clippy talking
+    function startClippyTalk() {
+        const phrases = [
+            "Hi! How can I help you today?",
+            "Don't forget to save your work!",
+            "It looks like you're trying to do something.",
+            "Need assistance? Just ask!",
+            "I'm here if you need help!"
+        ];
+
+        function speak() {
+            const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+            document.getElementById('clippy-speech').innerText = randomPhrase;
+            document.getElementById('clippy-sound').play(); // Play alert sound
+            clippyTimeout = setTimeout(speak, Math.random() * (120000 - 30000) + 30000); // Random interval between 30s and 2min
+        }
+
+        speak(); // Start the speaking loop
+    }
+
+    // Function to handle events
+    function handleEvent(eventType) {
+        const comments = {
+            "save": "Great job saving your work!",
+            "open": "You've opened a file! What next?",
+            "delete": "Oops! Be careful with deletions!",
+        };
+
+        const comment = comments[eventType];
+        if (comment) {
+            document.getElementById('clippy-speech').innerText = comment;
+            document.getElementById('clippy-sound').play(); // Play alert sound
+            clearTimeout(clippyTimeout); // Stop random talking
+            clippyTimeout = setTimeout(startClippyTalk, 5000); // Resume talking after 5 seconds
+        }
+    }
+
+    // Example usage of handleEvent function
+    // Call handleEvent('save'); when a save event occurs

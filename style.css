@@ -6,6 +6,8 @@ body, html {
     font-family: Tahoma, Verdana, sans-serif;
     background-color: #008080; /* Teal desktop background */
     position: relative;
+    transition: background-image 4s ease; /* Smooth transition */
+    overflow: hidden; /* Prevent scrolling */
 }
 #desktop {
     display: grid;
@@ -359,3 +361,26 @@ body, html {
     color: #333; /* Dark color for text */
     margin-top: 10px; /* Space above the title */
 }
+.clock {
+    color: white; /* Change to your desired text color */
+    margin-left: auto; /* Pushes the clock to the right */
+    padding: 10px; /* Adjust padding as needed */
+    font-size: 16px; /* Change font size if desired */
+}
+
+body.background-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#clippy-window {
+    position: absolute;
+    bottom: 100px; /* Adjust as needed */
+    right: 50px; /* Adjust as needed */
+    background: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+    border: 1px solid rgba(0, 0, 0, 0.5); /* Border with 50% opacity */
+    padding: 10px;
+    border-radius: 8px; /* Optional: for rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: subtle shadow */
+}
+

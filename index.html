@@ -6,6 +6,8 @@
     <title>Desktop</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="fav.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/schmich/clippy.js/master/clippy.css"> <!-- Add Clippy CSS -->
+    <script src="https://cdn.rawgit.com/schmich/clippy.js/master/clippy.js"></script>
 </head>
 <body>
     <div id="desktop">
@@ -46,6 +48,11 @@
             <img src="images/radio.png" alt="radio" class="icon-image">
             <span>Radio</span>
         </div>        
+        <div id="clippy-icon" class="desktop-icon" onclick="toggleClippy()">
+            <img src="images/Clippy.webp" alt="Clippy" class="icon-image">
+            <span>Clippy</span>
+        </div>
+        
 
         <!-- Windows -->
         <div class="window" id="my-computer">
@@ -180,8 +187,30 @@
             </div>
         </div>
 
+        <!-- Video Window -->
+        <div class="window" id="video-window" style="display:none;">
+            <div class="window-header">
+                Easter Egg Video
+                <span class="close-button" onclick="closeWindow('video-window')">X</span>
+            </div>
+            <div class="window-content">
+                <video id="easter-egg-video" width="600" controls>
+                    <source src="path/to/your/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
 
+        <!-- Clippy Window -->
+        <div class="window" id="clippy-window" style="display: none;">
+            <div class="window-content">
+                <img src="images/clippy.webp" alt="Clippy" style="width: 100px; height: auto;">
+                <div id="clippy-speech">Hello! I'm Clippy!</div>
+                <button onclick="closeClippy()">Close</button>
+            </div>
+        </div>
 
+        <audio id="clippy-sound" src="sounds/clippy.mp3" preload="auto"></audio>
     </div>
 
 
@@ -214,6 +243,7 @@
             <a href="https://github.com/C0d3Crush" target="_blank"><img src="images/github.png" alt="GitHub" class="social-icon"></a>
             <a href="mailto:lukdz@yahoo.de"><img src="images/email.png" alt="Email" class="social-icon" onclick="openWindow('email-window')"></a>
         </div>
+        <div id="clock" class="clock" onclick="handleClockClick()"></div> <!-- Clock div -->
     </div>
 
     <!-- Start Menu -->
