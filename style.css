@@ -295,3 +295,67 @@ body, html {
 #snake-canvas {
     border: 1px solid #4a708b; /* Border around the canvas */
 }
+
+/* Music Player Window Styles */
+#radio {
+    width: 300px; /* Adjust width as needed */
+    height: auto; /* Height will adjust based on content */
+    background: rgba(255, 255, 255, 0.9); /* Light background with transparency */
+    border: 2px solid #0078d7; /* Soft blue border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+/* Header Styles */
+.close-button:hover {
+    background: #ff2a2a; /* Darker red on hover */
+}
+
+
+/* Audio Player Styles */
+.audio-player {
+    width: 100%; /* Full width */
+    outline: none; /* Remove outline */
+    background: rgba(240, 240, 240, 0.8); /* Light gray background */
+}
+
+/* Additional Hover Effects for Audio Player */
+.audio-player::-webkit-media-controls {
+    background: rgba(255, 255, 255, 0.9); /* Transparent controls */
+}
+
+.audio-player::-webkit-media-controls-enclosure {
+    background: rgba(255, 255, 255, 0.9); /* Controls background */
+}
+
+/* Custom Controls Styles */
+.custom-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Button Styles */
+.custom-controls button {
+    background: #0078d7; /* Blue background */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px; /* Rounded corners */
+    margin: 0 5px; /* Space between buttons */
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.custom-controls button:hover {
+    background: #0056a3; /* Darker blue on hover */
+}
+
+/* Song Title Styles */
+.song-title {
+    text-align: center;
+    font-size: 16px;
+    color: #333; /* Dark color for text */
+    margin-top: 10px; /* Space above the title */
+}

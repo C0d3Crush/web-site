@@ -30,7 +30,7 @@
             <img src="images/dvd-icon.png" alt="DVD Screensaver" class="icon-image">
             <span>DVD Screensaver</span>
         </div>
-        <div class="desktop-icon" onclick="openWindow('text-file-window')">
+        <div class="desktop-icon" onclick="openWindow('notes')">
             <img src="images/notes.png" alt="Text File" class="icon-image">
             <span>Notes</span>
         </div>
@@ -41,6 +41,10 @@
         <div class="desktop-icon" onclick="openWindow('snake')">
             <img src="images/snake.png" alt="Snake" class="icon-image">
             <span>Snake</span>
+        </div>        
+        <div class="desktop-icon" onclick="openWindow('radio')">
+            <img src="images/radio.png" alt="radio" class="icon-image">
+            <span>Radio</span>
         </div>        
 
         <!-- Windows -->
@@ -139,10 +143,10 @@
         </div>
         
         <!-- Notes Window -->
-        <div class="window" id="text-file-window" style="display: none;">
+        <div class="window" id="notes" style="display: none;">
             <div class="window-header">
                 Notes
-                <span class="close-button" onclick="closeWindow('text-file-window')">X</span>
+                <span class="close-button" onclick="closeWindow('notes')">X</span>
             </div>
             <div class="window-content">
                 <pre id="text-file-content">This is the content of your notes. Add your text here, or load from the file if needed.</pre>
@@ -159,6 +163,23 @@
                 <canvas id="snake-canvas" width="400" height="300"></canvas>
             </div>
         </div>
+
+        <!-- Music Player Window -->
+        <div class="window" id="radio" style="display:none;">
+            <div class="window-header">
+                Music Player
+                <span class="close-button" onclick="closeWindow('radio')">X</span>
+            </div>
+            <div class="window-content">
+                <audio id="audio-player" src="radio/morpheus, my son (full album ).mp3"></audio>
+                <div id="song-title" class="song-title">Now Playing: Your Song Title</div>
+                <div class="custom-controls">
+                    <button id="play-button" onclick="togglePlay()">Play</button>
+                    <button id="pause-button" onclick="pauseMusic()" style="display:none;">Pause</button>
+                </div>
+            </div>
+        </div>
+
 
 
     </div>

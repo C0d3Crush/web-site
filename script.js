@@ -9,11 +9,14 @@ function openWindow(id) {
     if (id === 'dvd-screensaver') {
         startDvdScreensaver();
     } 
-    if (id === 'text-file-window') {
+    if (id === 'notes') {
         loadTextFile();
     }
     if (id === 'snake') {
         startSnakeGame();
+    }
+    if (id === 'radio') {
+        openMusicPlayer();
     }
 }
 
@@ -47,6 +50,11 @@ dragElement(document.getElementById("recycle-bin"));
 dragElement(document.getElementById("images-folder"));
 dragElement(document.getElementById("dvd-screensaver"));
 dragElement(document.getElementById("full-size-image"));
+dragElement(document.getElementById("radio"));
+dragElement(document.getElementById("snake"));
+dragElement(document.getElementById("notes"));
+
+
 
 function dragElement(elmnt) {
     let startX = 0, startY = 0, initialX = 0, initialY = 0;
@@ -192,16 +200,16 @@ function startSnakeGame() {
     document.addEventListener("keydown", direction);
 
     function direction(event) {
-        if (event.keyCode == 37 && d != "RIGHT") {
+        if (event.key === 'a' && d !== "RIGHT") {
             d = "LEFT";
-        } else if (event.keyCode == 38 && d != "DOWN") {
+        } else if (event.key === 'w' && d !== "DOWN") {
             d = "UP";
-        } else if (event.keyCode == 39 && d != "LEFT") {
+        } else if (event.key === 'd' && d !== "LEFT") {
             d = "RIGHT";
-        } else if (event.keyCode == 40 && d != "UP") {
+        } else if (event.key === 's' && d !== "UP") {
             d = "DOWN";
         }
-    }
+    }    
 
     function draw() {
         // Draw background
@@ -259,4 +267,36 @@ function startSnakeGame() {
     }
 
     const game = setInterval(draw, 100); // Call the draw function every 100ms
+}
+
+// Function to open the music player
+function openMusicPlayer() {
+    document.getElementById('radio').style.display = 'block';
+}
+
+// Toggle Play and Pause
+function togglePlay() {
+    const audioPlayer = document.getElementById("audio-player");
+    const playButton = document.getElementById("play-button");
+    const pauseButton = document.getElementById("pause-button");
+    const songTitle = document.getElementById("song-title");
+
+    if (audioPlayer.paused) {
+        audioPlayer.play();
+        playButton.style.display = "none"; // Hide Play button
+        pauseButton.style.display = "inline"; // Show Pause button
+        songTitle.textContent = "Now Playing: morpheus, my son (full album )"; // Update song title
+    } else {
+        audioPlayer.pause();
+        playButton.style.display = "inline"; // Show Play button
+        pauseButton.style.display = "none"; // Hide Pause button
+    }
+}
+
+// Pause Music
+function pauseMusic() {
+    const audioPlayer = document.getElementById("audio-player");
+    audioPlayer.pause();
+    document.getElementById("play-button").style.display = "inline"; // Show Play button
+    document.getElementById("pause-button").style.display = "none"; // Hide Pause button
 }
