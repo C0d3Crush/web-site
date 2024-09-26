@@ -428,3 +428,17 @@ let clippyTimeout;
 
     // Example usage of handleEvent function
     // Call handleEvent('save'); when a save event occurs
+
+   function detectDevice() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            const overlay = document.getElementById('overlay');
+
+            if (/android/i.test(userAgent) || /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream || /windows phone/i.test(userAgent)) {
+                overlay.style.display = 'flex'; // Show overlay for mobile devices
+            } else {
+                console.log("User is on a PC.");
+            }
+        }
+
+        // Call the function when the document is loaded
+        window.onload = detectDevice;

@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desktop</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="fav.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/schmich/clippy.js/master/clippy.css"> <!-- Add Clippy CSS -->
-    <script src="https://cdn.rawgit.com/schmich/clippy.js/master/clippy.js"></script>
 </head>
 <body>
+
+      <!-- Overlay element -->
+      <div id="overlay">
+        <img src="images/meme.png" alt="Open on PC"> <!-- Replace with your image URL -->
+    </div>
+
     <div id="desktop">
         <!-- Desktop Icons -->
         <div class="desktop-icon" onclick="openWindow('my-computer')">
@@ -49,7 +52,7 @@
             <span>Radio</span>
         </div>        
         <div id="clippy-icon" class="desktop-icon" onclick="toggleClippy()">
-            <img src="images/Clippy.png" alt="Clippy" class="icon-image">
+            <img src="images/clippy.png" alt="Clippy" class="icon-image">
             <span>Clippy</span>
         </div>
         
@@ -184,20 +187,6 @@
                     <button id="play-button" onclick="togglePlay()">Play</button>
                     <button id="pause-button" onclick="pauseMusic()" style="display:none;">Pause</button>
                 </div>
-            </div>
-        </div>
-
-        <!-- Video Window -->
-        <div class="window" id="video-window" style="display:none;">
-            <div class="window-header">
-                Easter Egg Video
-                <span class="close-button" onclick="closeWindow('video-window')">X</span>
-            </div>
-            <div class="window-content">
-                <video id="easter-egg-video" width="600" controls>
-                    <source src="path/to/your/video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
             </div>
         </div>
 
