@@ -195,8 +195,19 @@ function startSnakeGame() {
     let snake = [{ x: 9 * box, y: 9 * box }]; // Initial snake position
     let food = { x: Math.floor(Math.random() * 20) * box, y: Math.floor(Math.random() * 15) * box };
     let d; // Direction
+    let score = 0; // Initialize score
 
-    // Control the snake with arrow keys
+    // Load textures
+    const snakeImage = new Image();
+    const foodImage = new Image();
+    const backgroundImage = new Image(); // Background image
+
+    // Load the images
+    snakeImage.src = 'images/snake.png'; // Replace with your snake image path
+    foodImage.src = 'images/apple.png'; // Replace with your food image path
+    backgroundImage.src = 'images/background.png'; // Replace with your background image path
+
+    // Control the snake with WASD keys
     document.addEventListener("keydown", direction);
 
     function direction(event) {
@@ -213,18 +224,20 @@ function startSnakeGame() {
 
     function draw() {
         // Draw background
-        ctx.fillStyle = "black";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 
         // Draw snake
         for (let i = 0; i < snake.length; i++) {
-            ctx.fillStyle = (i === 0) ? "lime" : "white"; // Head of the snake
-            ctx.fillRect(snake[i].x, snake[i].y, box, box);
+            ctx.drawImage(snakeImage, snake[i].x, snake[i].y, box, box);
         }
 
         // Draw food
-        ctx.fillStyle = "red";
-        ctx.fillRect(food.x, food.y, box, box);
+        ctx.drawImage(foodImage, food.x, food.y, box, box);
+
+        // Draw score in the top left corner
+        ctx.fillStyle = "white"; // Set color for the score text
+        ctx.font = "20px Arial"; // Set font size and type
+        ctx.fillText(`Score: ${score}`, 10, 20); // Draw the score text at position (10, 20)
 
         // Old snake position
         let snakeX = snake[0].x;
@@ -237,8 +250,9 @@ function startSnakeGame() {
         if (d == "DOWN") snakeY += box;
 
         // If the snake eats the food
-        if (snakeX == food.x && snakeY == food.y) {
+        if (snakeX === food.x && snakeY === food.y) {
             food = { x: Math.floor(Math.random() * 20) * box, y: Math.floor(Math.random() * 15) * box };
+            score++; // Increment score
         } else {
             // Remove the tail
             snake.pop();
@@ -266,8 +280,10 @@ function startSnakeGame() {
         return false;
     }
 
-    const game = setInterval(draw, 100); // Call the draw function every 100ms
+    const game = setInterval(draw, 200); // Call the draw function every 200ms
 }
+
+
 
 // Function to open the music player
 function openMusicPlayer() {
