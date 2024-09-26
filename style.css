@@ -384,7 +384,6 @@ body.background-image {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: subtle shadow */
 }
 
-/* Overlay styles */
 #overlay {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -397,6 +396,9 @@ body.background-image {
     text-align: center;
     padding: 20px;
     z-index: 1000; /* Sit on top */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
 }
 #overlay h2 {
     margin-bottom: 20px; /* Spacing below the heading */
@@ -404,7 +406,7 @@ body.background-image {
 #overlay img {
     max-width: 90%; /* Limit width to 90% of the overlay */
     max-height: 80%; /* Limit height to 80% of the overlay */
+    object-fit: contain; /* Maintain aspect ratio without cropping */
     height: auto; /* Maintain aspect ratio */
     width: auto; /* Maintain aspect ratio */
-    margin: 0 auto; /* Center image */
 }
